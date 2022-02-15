@@ -8,7 +8,7 @@ export default function SidebarMenuItem({icon, title, isSideBarOpened }: Sidebar
   return (
     <div className="flex cursor-pointer">
     { icon }
-    {isSideBarOpened && <span className="text-orange-300 font-sans text-xl" >{ title }</span>}
+    {isSideBarOpened && <span className="text-orange-300 font-sans text-lg" >{ title }</span>}
   </div>
   )
 }
