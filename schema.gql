@@ -1,0 +1,125 @@
+"""Direct the client to resolve this field locally, either from the cache or local resolvers."""
+directive @client(
+  """
+  When true, the client will never use the cache for this value. See
+  https://www.apollographql.com/docs/react/essentials/local-state/#forcing-resolvers-with-clientalways-true
+  """
+  always: Boolean
+) on FIELD | FRAGMENT_DEFINITION | INLINE_FRAGMENT
+
+"""
+Export this locally resolved field as a variable to be used in the remainder of this query. See
+https://www.apollographql.com/docs/react/essentials/local-state/#using-client-fields-as-variables
+"""
+directive @export(
+  """The variable name to export this field as."""
+  as: String!
+) on FIELD
+
+"""
+Specify a custom store key for this result. See
+https://www.apollographql.com/docs/react/advanced/caching/#the-connection-directive
+"""
+directive @connection(
+  """Specify the store key."""
+  key: String!
+  """An array of query argument names to include in the generated custom store key."""
+  filter: [String!]
+) on FIELD
+
+type CategoryType {
+  id: ID!
+  """Created At"""
+  createdAt: DateTime!
+  """Update At"""
+  updatedAt: DateTime!
+  """Category Title"""
+  title: String!
+}
+
+"""A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format."""
+scalar DateTime
+
+type Permission {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Role {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Parent {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Query {
+  findAllCategories: [CategoryType!]!
+  findCategoryByTitle(data: String!): CategoryType!
+  findCategoryById(data: String!): CategoryType!
+  permissions: [Permission!]!
+  permission(id: Int!): Permission!
+  roles: [Role!]!
+  role(id: Int!): Role!
+  parents: [Parent!]!
+  parent(id: Int!): Parent!
+}
+
+type Mutation {
+  CreateNewCategory(categoryInput: CreateCategoryInput!): CategoryType!
+  updateCategory(id: String!, payload: UpdateCategoryInput!): CategoryType!
+  deleteCategory(categoryId: String!): CategoryType!
+  createPermission(createPermissionInput: CreatePermissionInput!): Permission!
+  updatePermission(updatePermissionInput: UpdatePermissionInput!): Permission!
+  removePermission(id: Int!): Permission!
+  createRole(createRoleInput: CreateRoleInput!): Role!
+  updateRole(updateRoleInput: UpdateRoleInput!): Role!
+  removeRole(id: Int!): Role!
+  createParent(createParentInput: CreateParentInput!): Parent!
+  updateParent(updateParentInput: UpdateParentInput!): Parent!
+  removeParent(id: Int!): Parent!
+}
+
+input CreateCategoryInput {
+  """Example field (placeholder)"""
+  title: String!
+}
+
+input UpdateCategoryInput {
+  title: String!
+}
+
+input CreatePermissionInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdatePermissionInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateRoleInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateRoleInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateParentInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateParentInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
