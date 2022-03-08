@@ -12,8 +12,8 @@ export type TableProps = {
 
 export default function TableSupplier({onDeleteHandler, onEditlHandler, onMoreDetailHandler}: TableProps) {
   return (
-    
-    <div className="w-full bg-gray-900 p-6 rounded-lg  ">
+
+    <div className="w-full bg-gray-900 p-6 rounded-lg">
     <div className="w-full flex justify-between">
       <span className="text-white font-sans font-semibold leading-loose text-xl">Fornecedores</span>
       <div>
@@ -33,7 +33,7 @@ export default function TableSupplier({onDeleteHandler, onEditlHandler, onMoreDe
             <td className="py-4 border-b border-gray-700">Segmento</td>
             <td className="py-4 border-b border-gray-700 ">Status</td>
             <td className="py-4 border-b border-gray-700 ">Cadastro</td>
-            <td className="py-4 border-b border-gray-700 ">Ações</td>
+            <td className="py-4 border-b border-gray-700 text-center">Ações</td>
           </tr>
         </thead>
         <tbody>
@@ -73,17 +73,17 @@ export default function TableSupplier({onDeleteHandler, onEditlHandler, onMoreDe
 
             <td>
               <div className='gap-x-6 flex text-white'>
-                <CgMoreVerticalO 
+                <CgMoreVerticalO
                   onClick={onMoreDetailHandler}
-                  size={40} 
+                  size={40}
                   className='rounded-full bg-green-400/20 p-2 text-green-400 cursor-pointer'/>
-                <RiEditBoxLine 
+                <RiEditBoxLine
                   onClick={onEditlHandler}
-                  size={40} 
+                  size={40}
                   className='rounded-full bg-orange-400/20 p-2 text-orange-400 cursor-pointer'/>
-                <AiOutlineDelete 
+                <AiOutlineDelete
                   onClick={onDeleteHandler}
-                  size={40} 
+                  size={40}
                   className='rounded-full bg-red-400/20 p-2 text-red-400 cursor-pointer'/>
               </div>
             </td>
@@ -123,20 +123,20 @@ export default function TableSupplier({onDeleteHandler, onEditlHandler, onMoreDe
                 <span className="flex justify-center py-1.5 rounded-full font-medium capitalize text-orange-400 bg-orange-400/20 w-24">Pendente</span>
             </td>
 
-            
+
             <td>
               <div className='gap-x-6 flex text-white'>
-                <CgMoreVerticalO 
+                <CgMoreVerticalO
                   onClick={onMoreDetailHandler}
-                  size={40} 
+                  size={40}
                   className='rounded-full bg-green-400/20 p-2 text-green-400 cursor-pointer'/>
-                <RiEditBoxLine 
+                <RiEditBoxLine
                   onClick={onEditlHandler}
-                  size={40} 
+                  size={40}
                   className='rounded-full bg-orange-400/20 p-2 text-orange-400 cursor-pointer'/>
-                <AiOutlineDelete 
+                <AiOutlineDelete
                   onClick={onDeleteHandler}
-                  size={40} 
+                  size={40}
                   className='rounded-full bg-red-400/20 p-2 text-red-400 cursor-pointer'/>
               </div>
             </td>
@@ -176,20 +176,20 @@ export default function TableSupplier({onDeleteHandler, onEditlHandler, onMoreDe
                 <span className="flex justify-center py-1.5 rounded-full font-medium capitalize text-red-400 bg-red-400/20 w-24">Irregular</span>
             </td>
 
-            
+
             <td>
               <div className='gap-x-6 flex text-white'>
-                <CgMoreVerticalO 
+                <CgMoreVerticalO
                   onClick={onMoreDetailHandler}
-                  size={40} 
+                  size={40}
                   className='rounded-full bg-green-400/20 p-2 text-green-400 cursor-pointer'/>
-                <RiEditBoxLine 
+                <RiEditBoxLine
                   onClick={onEditlHandler}
-                  size={40} 
+                  size={40}
                   className='rounded-full bg-orange-400/20 p-2 text-orange-400 cursor-pointer'/>
-                <AiOutlineDelete 
+                <AiOutlineDelete
                   onClick={onDeleteHandler}
-                  size={40} 
+                  size={40}
                   className='rounded-full bg-red-400/20 p-2 text-red-400 cursor-pointer'/>
               </div>
             </td>
