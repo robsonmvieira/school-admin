@@ -5,21 +5,9 @@ import { AiOutlineMail } from 'react-icons/ai'
 import { ImProfile } from 'react-icons/im'
 import { GoLocation } from 'react-icons/go'
 
-import { initializeApollo } from '../../../utils/apollo'
-import { useAdmin } from '../../../contexts/useAdmin'
-import { useEffect } from 'react'
-import { QUERY_FIND_CATEGORIES } from '../../../graphql/queries/admin/categories'
-import { loadCategories } from '../../../graphql/generated/loadCategories'
 
-export type MeProps = {
-  categories: any[]
-}
+const Me = () => {
 
-const Me = ({ categories }: MeProps) => {
-  const { addCategory } = useAdmin()
-  useEffect(() => {
-    categories.map((category: any) => addCategory(category))
-  }, [categories])
   return (
     <>
       <Container>
@@ -80,18 +68,6 @@ const Me = ({ categories }: MeProps) => {
   )
 }
 
-export async function getStaticProps() {
-  const apollo = initializeApollo()
-  const { data } = await apollo.query<loadCategories>({
-    query: QUERY_FIND_CATEGORIES
-  })
-  return {
-    props: {
-      revalidate: 60,
-      categories: data.findAllCategories,
-      initialApolloState: apollo.cache.extract()
-    }
-  }
-}
+
 
 export default Me
