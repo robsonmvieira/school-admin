@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from 'next/router'
+
 import Menu from "../../components/menu";
 import Sidebar from "../../components/sidebar";
 
@@ -8,6 +10,14 @@ import TableSupplier from "./supplierTable";
 import ConfirmModal from "../../components/shared/confirmModal";
 
 export default function Index() {
+  const router = useRouter()
+  useEffect(() => {
+    if(router.route === '/admin') {
+      router.push('admin/suppliers')
+    }
+
+  }, [])
+
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [isSideBarOpened, setIsSideBarOpened] = useState(false);
   const [confirmationModalIsOpen, setConfirmationModalIsOpen] = useState(false);
@@ -38,15 +48,15 @@ export default function Index() {
 
           <div className="flex flex-col ml-8 w-full mr-12 gap-y-16">
             <CardReportList />
-            <TableSupplier 
+            <TableSupplier
               onDeleteHandler={onDeleteHandler}
-              onEditlHandler={onEditlHandler} 
+              onEditlHandler={onEditlHandler}
               onMoreDetailHandler={onMoreDetailHandler} />
           </div>
         </main>
       </div>
-      {confirmationModalIsOpen && <ConfirmModal 
-        onExcludeItemHandler={onExcludeItemHandler} 
+      {confirmationModalIsOpen && <ConfirmModal
+        onExcludeItemHandler={onExcludeItemHandler}
         onHandlerCancel={() => setConfirmationModalIsOpen(false)} />}
     </div>
   );
